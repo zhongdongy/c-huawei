@@ -6,12 +6,12 @@ int main(void)
 {
 
   int ar[] = {4, 2, 1, 3, 6, 5, 8, 7};
-  printf("Before:\n");
+  printf("Before:\t");
   print_array(ar, 8);
 
-  heap_sort_desc(ar, 8);
+  shell_sort_desc(ar, 8);
 
-  printf("After:\n");
+  printf("After:\t");
   print_array(ar, 8);
 
   return 0;

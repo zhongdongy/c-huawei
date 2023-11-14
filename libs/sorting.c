@@ -222,12 +222,10 @@ void selection_sort_desc(int ar[], int length)
 
 void insertion_sort_asc(int ar[], int length)
 {
-  int idx_pre, idx_current;
-
   int idx;
   for (idx = 1; idx < length; idx++)
   {
-    idx_pre = idx - 1;
+    int idx_pre = idx - 1;
     int current = ar[idx];
 
     while (idx_pre >= 0 && ar[idx_pre] > current)
@@ -241,13 +239,12 @@ void insertion_sort_asc(int ar[], int length)
 
 void insertion_sort_desc(int ar[], int length)
 {
-  int idx_pre, current;
   int idx;
 
   for (idx = 1; idx < length; idx++)
   {
-    idx_pre = idx - 1;
-    current = ar[idx];
+    int idx_pre = idx - 1;
+    int current = ar[idx];
 
     while (idx_pre >= 0 && ar[idx_pre] < current)
     {
@@ -263,6 +260,55 @@ void insertion_sort_desc(int ar[], int length)
 
 void shell_sort_asc(int ar[], int length)
 {
-  
+  int gap = 1;
+  while (gap < length / 3)
+  {
+    gap = gap * 3 + 1;
+  }
+
+  while (gap > 0)
+  {
+    int idx;
+    for (idx = gap; idx < length; idx++)
+    {
+      int idx_pre = idx - gap;
+      int current = ar[idx];
+
+      while (idx_pre >= 0 && ar[idx_pre] > current)
+      {
+        ar[idx_pre + gap] = ar[idx_pre];
+        idx_pre -= gap;
+      }
+      ar[idx_pre + gap] = current;
+    }
+    gap /= 3;
+  }
+}
+
+void shell_sort_desc(int ar[], int length)
+{
+  int gap = 1;
+  while (gap < length / 3)
+  {
+    gap = gap * 3 + 1;
+  }
+
+  while (gap > 0)
+  {
+    int idx;
+    for (idx = gap; idx < length; idx++)
+    {
+      int idx_pre = idx - gap;
+      int current = ar[idx];
+
+      while (idx_pre >= 0 && ar[idx_pre] < current)
+      {
+        ar[idx_pre + gap] = ar[idx_pre];
+        idx_pre -= gap;
+      }
+      ar[idx_pre + gap] = current;
+    }
+    gap /= 3;
+  }
 }
 #pragma endregion

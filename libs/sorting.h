@@ -72,5 +72,18 @@ void insertion_sort_asc(int[], int);
  */
 void insertion_sort_desc(int[], int);
 
+/**
+ * \brief Sort an array in ascending order using shell sort algorithm
+ *
+ * \param ar Array to sort
+ * \param length Length of given array
+ */
 void shell_sort_asc(int[], int);
+
+/**
+ * \brief Sort an array in descending order using shell sort algorithm
+ *
+ * \param ar Array to sort
+ * \param length Length of given array
+ */
 void shell_sort_desc(int[], int);

@@ -219,7 +219,6 @@ void selection_sort_desc(int ar[], int length)
 #pragma endregion
 
 #pragma region Insertion Sort
-
 void insertion_sort_asc(int ar[], int length)
 {
   int idx;
@@ -257,7 +256,6 @@ void insertion_sort_desc(int ar[], int length)
 #pragma endregion
 
 #pragma region Shell Sort
-
 void shell_sort_asc(int ar[], int length)
 {
   int gap = 1;
@@ -410,7 +408,15 @@ void merge_sort_desc(int ar[], int length)
 #pragma endregion
 
 #pragma region Quick Sort
-
+/**
+ * \brief (internal) Quick sort partition function
+ *
+ * Find first element as piviot and move all elements smaller than it to its
+ *  left hand side. Then return the new pivot position index.
+ * \param ar Array to sort
+ * \param l Left range of current segment
+ * \param r Right range of current segment
+ */
 int __qs_partition_asc(int ar[], int l, int r)
 {
   int idx_pivot = l;
@@ -428,6 +434,13 @@ int __qs_partition_asc(int ar[], int l, int r)
   return idx - 1;
 }
 
+/**
+ * \brief (internal) Quick sort using ascending order
+ *
+ * \param ar Array to sort
+ * \param l Left range of current segment
+ * \param r Right range of current segment
+ */
 void __quick_sort_asc(int ar[], int l, int r)
 {
   if (l < r)
@@ -437,6 +450,16 @@ void __quick_sort_asc(int ar[], int l, int r)
     __quick_sort_asc(ar, idx_partition + 1, r);
   }
 }
+
+/**
+ * \brief (internal) Quick sort partition function
+ *
+ * Find first element as piviot and move all elements greater than it to its
+ *  left hand side. Then return the new pivot position index.
+ * \param ar Array to sort
+ * \param l Left range of current segment
+ * \param r Right range of current segment
+ */
 int __qs_partition_desc(int ar[], int l, int r)
 {
   int idx_pivot = l;
@@ -454,6 +477,13 @@ int __qs_partition_desc(int ar[], int l, int r)
   return idx - 1;
 }
 
+/**
+ * \brief (internal) Quick sort using descending order
+ *
+ * \param ar Array to sort
+ * \param l Left range of current segment
+ * \param r Right range of current segment
+ */
 void __quick_sort_desc(int ar[], int l, int r)
 {
   if (l < r)

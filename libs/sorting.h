@@ -87,3 +87,35 @@ void shell_sort_asc(int[], int);
  * \param length Length of given array
  */
 void shell_sort_desc(int[], int);
+
+/**
+ * \brief Sort an array in ascending order using merge sort algorithm
+ *
+ * \param ar Array to sort
+ * \param length Length of given array
+ */
+void merge_sort_asc(int[], int);
+
+/**
+ * \brief Sort an array in descending order using merge sort algorithm
+ *
+ * \param ar Array to sort
+ * \param length Length of given array
+ */
+void merge_sort_desc(int[], int);
+
+/**
+ * \brief Sort an array in ascending order using quick sort algorithm
+ *
+ * \param ar Array to sort
+ * \param length Length of given array
+ */
+void quick_sort_asc(int[], int);
+
+/**
+ * \brief Sort an array in descending order using quick sort algorithm
+ *
+ * \param ar Array to sort
+ * \param length Length of given array
+ */
+void quick_sort_desc(int[], int);

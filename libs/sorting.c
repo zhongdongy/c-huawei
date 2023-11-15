@@ -312,3 +312,165 @@ void shell_sort_desc(int ar[], int length)
   }
 }
 #pragma endregion
+
+#pragma region Merge Sort
+/**
+ * \brief (internal) Returns a ascendingly sorted segment of given array.
+ *
+ * \param ar Array to sort
+ * \param l Segment start index (inclusive)
+ * \param r Segment end index (inclusive)
+ */
+void __merge_sort_asc(int ar[], int l, int r)
+{
+  if (r == l)
+  {
+    return;
+  }
+
+  int mid = (l + r) >> 1;
+  __merge_sort_asc(ar, l, mid);
+  __merge_sort_asc(ar, mid + 1, r);
+  int idx_l = l, idx_r = mid + 1, idx = 0;
+  int temp_ar[r - l + 1];
+
+  while (idx_l <= mid && idx_r <= r)
+  {
+    temp_ar[idx++] = ar[idx_l] < ar[idx_r] ? ar[idx_l++] : ar[idx_r++];
+  }
+
+  while (idx_l <= mid)
+  {
+    temp_ar[idx++] = ar[idx_l++];
+  }
+
+  while (idx_r <= r)
+  {
+    temp_ar[idx++] = ar[idx_r++];
+  }
+
+  int idx_temp;
+  for (idx_temp = 0; idx_temp < r - l + 1; idx_temp++)
+  {
+    ar[l + idx_temp] = temp_ar[idx_temp];
+  }
+}
+
+/**
+ * \brief (internal) Returns a descendingly sorted segment of given array.
+ *
+ * \param ar Array to sort
+ * \param l Segment start index (inclusive)
+ * \param r Segment end index (inclusive)
+ */
+void __merge_sort_desc(int ar[], int l, int r)
+{
+  if (r == l)
+  {
+    return;
+  }
+
+  int mid = (l + r) >> 1;
+  __merge_sort_desc(ar, l, mid);
+  __merge_sort_desc(ar, mid + 1, r);
+  int idx_l = l, idx_r = mid + 1, idx = 0;
+  int temp_ar[r - l + 1];
+
+  while (idx_l <= mid && idx_r <= r)
+  {
+    temp_ar[idx++] = ar[idx_l] > ar[idx_r] ? ar[idx_l++] : ar[idx_r++];
+  }
+
+  while (idx_l <= mid)
+  {
+    temp_ar[idx++] = ar[idx_l++];
+  }
+
+  while (idx_r <= r)
+  {
+    temp_ar[idx++] = ar[idx_r++];
+  }
+
+  int idx_temp;
+  for (idx_temp = 0; idx_temp < r - l + 1; idx_temp++)
+  {
+    ar[l + idx_temp] = temp_ar[idx_temp];
+  }
+}
+
+void merge_sort_asc(int ar[], int length)
+{
+  __merge_sort_asc(ar, 0, length - 1);
+}
+
+void merge_sort_desc(int ar[], int length)
+{
+  __merge_sort_desc(ar, 0, length - 1);
+}
+#pragma endregion
+
+#pragma region Quick Sort
+
+int __qs_partition_asc(int ar[], int l, int r)
+{
+  int idx_pivot = l;
+  int idx = idx_pivot + 1;
+  int i = idx;
+  while (i <= r)
+  {
+    if (ar[i] < ar[idx_pivot])
+    {
+      swap_array_elements(ar, i, idx++);
+    }
+    i++;
+  }
+  swap_array_elements(ar, idx_pivot, idx - 1);
+  return idx - 1;
+}
+
+void __quick_sort_asc(int ar[], int l, int r)
+{
+  if (l < r)
+  {
+    int idx_partition = __qs_partition_asc(ar, l, r);
+    __quick_sort_asc(ar, l, idx_partition - 1);
+    __quick_sort_asc(ar, idx_partition + 1, r);
+  }
+}
+int __qs_partition_desc(int ar[], int l, int r)
+{
+  int idx_pivot = l;
+  int idx = idx_pivot + 1;
+  int i = idx;
+  while (i <= r)
+  {
+    if (ar[i] > ar[idx_pivot])
+    {
+      swap_array_elements(ar, i, idx++);
+    }
+    i++;
+  }
+  swap_array_elements(ar, idx_pivot, idx - 1);
+  return idx - 1;
+}
+
+void __quick_sort_desc(int ar[], int l, int r)
+{
+  if (l < r)
+  {
+    int idx_partition = __qs_partition_desc(ar, l, r);
+    __quick_sort_desc(ar, l, idx_partition - 1);
+    __quick_sort_desc(ar, idx_partition + 1, r);
+  }
+}
+
+void quick_sort_asc(int ar[], int length)
+{
+  __quick_sort_asc(ar, 0, length - 1);
+}
+
+void quick_sort_desc(int ar[], int length)
+{
+  __quick_sort_desc(ar, 0, length - 1);
+}
+#pragma endregion

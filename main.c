@@ -9,7 +9,7 @@ int main(void)
   printf("Before:\t");
   print_array(ar, 8);
 
-  shell_sort_desc(ar, 8);
+  quick_sort_desc(ar, 8);
 
   printf("After:\t");
   print_array(ar, 8);

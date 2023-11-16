@@ -30,4 +30,14 @@ find libs/ -iregex '.*\.c' -execdir basename -s ".c" {} + | xargs printf 'target
 ./target/main.exe
 ```
 
-There is also a script called `main.sh` that can do all above.
+There is also a script called `run.sh` that can do all above.
+
+### Windows (Cygwin + CMake + Make + GCC)
+
+You will need to install Cygwin (or mingw), then have cmake, make and packages from Cygwin preinstalled.
+
+Use this one line code:
+
+```bash
+cmake "CMakeLists.txt" && make && ./target/huawei
+```

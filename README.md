@@ -40,4 +40,6 @@ Use this one line code:
 
 ```bash
 cmake "CMakeLists.txt" && make && ./target/huawei
+# Or
+cmake "CMakeLists.txt" && make clean && make && ./target/huawei
 ```

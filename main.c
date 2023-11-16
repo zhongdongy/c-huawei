@@ -1,23 +1,18 @@
 #include <stdio.h>
-#include "libs/sorting.h"
-#include "libs/utils.h"
-#include "libs/string.h"
-
-// int main(void)
-// {
-//   char str[] = "Hello World!";
-//   printf("Before:\t'%s'\n", str);
-//   str_sort(str, 13);
-//   printf("After:\t'%s'\n", str);
-
-//   return 0;
-// }
+#define MSG "Hello World!";
 
 int main(void)
 {
-	char *str = "Hello World!";
-	printf("%s\n", str);
-	str[6] = 'w';
-	printf("%s\n", str);
+	char *str_p = "Hello World!";
+	char str_arr[] = "Hello World!";
+	char *msg_p = MSG;
+	char msg_arr[] = MSG;
+
+	printf("Source\t\tPtr Addr.\tPtr Target Addr.\tTarget String\n");
+	printf("[str_p]\t\t%p\t%p\t\t%s\n", &str_p, str_p, str_p);
+	printf("[str_arr]\t%p\t%p\t\t%s\n", &str_arr, str_arr, str_arr);
+	printf("[msg_p]\t\t%p\t%p\t\t%s\n", &msg_p, msg_p, msg_p);
+	printf("[msg_arr]\t%p\t%p\t\t%s\n", &msg_arr, msg_arr, msg_arr);
+
 	return 0;
 }

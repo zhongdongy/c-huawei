@@ -1,14 +1,28 @@
 #include <stdio.h>
-#include "./libs/string.h"
-#include "./libs/utils.h"
-#include "./libs/sorting.h"
 
 int main(void)
 {
-	char str_arr[] = "Hello World!";
-	printf("Before:\t%s\n", str_arr);
-	str_sort_desc(str_arr, 13);
-	printf("After:\t%s\n", str_arr);
+	char str1[5];
+	char str2[100];
+	// fgets(str1, 5, stdin);
+	// fgets(str2, 100, stdin);
+
+	gets(str1);
+	gets(str2);
+
+	// gets_s(str1, 5);
+	// gets_s(str2, 100);
+
+	printf("[%s]\n", str1);
+	printf("[%s]\n", str2);
 
 	return 0;
 }
+
+/**
+
+Hel
+lo World!
+Line 2!
+
+*/
